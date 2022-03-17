@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/PhantomEngine/Samples/Sample-Example/Sample-Example.unity
+    guid: 6d32fe9df9dad6c4a94e9c6e7dafcd4d
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6b7f262767f52cb4fa8fd99406da52f9, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: bc1b05c888bdf9e47b35646002b48a65, type: 2}
