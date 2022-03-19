@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5281680831063519781}
   - component: {fileID: 5281680831063519780}
   - component: {fileID: 5281680831063519779}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,9 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathfinding: {fileID: 5281680831063519779}
-  _target: {x: 0, y: 0, z: 0}
-  _radius: 5
-  _normalisedMagnitude: 0
 --- !u!114 &5281680831063519779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b46fa74ef2fcb049af4673ce53d082d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReachedTarget:
+    m_PersistentCalls:
+      m_Calls: []
   m_map: {fileID: 0}
   m_speed: 5
   m_rotationSpeed: 1

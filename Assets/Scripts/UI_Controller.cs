@@ -18,7 +18,6 @@ public class UI_Controller : MonoBehaviour
     {
         CustomEvents.SharedInstance.CapturedGhost.AddListener(UpdateCaptured);
         CustomEvents.SharedInstance.GhostNumberChanged.AddListener(UpdateNumber);
-
     }
 
     public void UpdateNumber(int arg0)

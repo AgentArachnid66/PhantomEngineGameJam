@@ -49,6 +49,8 @@ public class Source : MonoBehaviour
                 float _scale = GhostObjectPool.SharedInstance.scaleCurve.Evaluate(Mathf.Clamp(Random.Range(0.35f, 1f) + scaleOffset, 0.35f, 1f));
                 _currGhost.transform.localScale = new Vector3(_scale, _scale, _scale);
                 _currGhost.gameObject.SetActive(true);
+                GameObject ghost = _currGhost.gameObject;
+                MeshSelector.SharedInstance.ChangeGameObject(_currGhost._normalisedMagnitude, ref ghost);
                 _currGhost.BeginPathfinding(spawnPoint.position + Random.onUnitSphere * _radius);
                 StartCoroutine(ResetCooldown());
                 CustomEvents.SharedInstance.GhostNumberChanged.Invoke(1);
