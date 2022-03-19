@@ -47,7 +47,7 @@ public class Ghost : MonoBehaviour
 
 
     [ContextMenu("Capture Ghost")]
-    void Capture()
+    public void Capture()
     {
         gameObject.SetActive(false);
         CustomEvents.SharedInstance.CapturedGhost.Invoke(_normalisedMagnitude);
@@ -66,4 +66,6 @@ public class Ghost : MonoBehaviour
         gameObject.SetActive(false);
         CustomEvents.SharedInstance.GhostNumberChanged.Invoke(-1);
     }
+
+
 }

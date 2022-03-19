@@ -13,7 +13,7 @@ public class Source : MonoBehaviour
     private Ghost[] _ghosts;
     [SerializeField] private int _currIndex = 0;
     private Ghost _currGhost;
-
+    public Transform target;
     [Range(1, 20)]
     [SerializeField] private float _radius;
 
@@ -25,7 +25,7 @@ public class Source : MonoBehaviour
     private void OnEnable()
     {
         InvokeRepeating("SpawnGhost", 1f, 2f);
-        scaleOffset = Random.Range(-0.25f, 0.25f);
+        scaleOffset = Random.Range(0f, 0.5f);
     }
 
     private void OnDisable()
@@ -51,7 +51,8 @@ public class Source : MonoBehaviour
                 _currGhost.gameObject.SetActive(true);
                 GameObject ghost = _currGhost.gameObject;
                 MeshSelector.SharedInstance.ChangeGameObject(_currGhost._normalisedMagnitude, ref ghost);
-                _currGhost.BeginPathfinding(spawnPoint.position + Random.onUnitSphere * _radius);
+                LeanTween.move(ghost, target, 1f).setOnComplete(() => _currGhost.BeginPathfinding(spawnPoint.position + (Random.onUnitSphere * _radius)));
+                
                 StartCoroutine(ResetCooldown());
                 CustomEvents.SharedInstance.GhostNumberChanged.Invoke(1);
 
@@ -73,6 +74,8 @@ public class Source : MonoBehaviour
             }
         }
     }
+
+
 
 
     IEnumerator ResetCooldown()

@@ -24,17 +24,7 @@ public class Spawner : MonoBehaviour
             _rigidbodies[i].gameObject.SetActive(false);
         }
 
-
         InvokeRepeating("SpawnSourcesInArea", 3f, 1f);
-
-        /*
-        PhantomTech.Spatial.Meshing.MeshGenerated += (ctx =>
-        {
-          
-        }
-        }
-            );
-            */
     }
 
     [ContextMenu("Spawn Sources around player")]
@@ -65,7 +55,6 @@ public class Spawner : MonoBehaviour
 
     }
 
-
     private void SpawnSource(Vector3 position)
     {
         GameObject newSource = SourceObjectPool.SharedInstance.GetPooledObject();
@@ -76,8 +65,6 @@ public class Spawner : MonoBehaviour
             newSource.SetActive(true);
         }
     }
-
-
 
     private IEnumerator CheckRigidbody(Rigidbody rigidbody, int index)
     {
@@ -91,7 +78,7 @@ public class Spawner : MonoBehaviour
         }
 
         Debug.Log("Rigidbidy Stopped Moving");
-        SpawnSource(rigidbody.position);
+        SpawnSource(rigidbody.position + Vector3.down*0.1f);
         _active[index] = false;
         rigidbody.gameObject.SetActive(false);
     }

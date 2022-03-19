@@ -34,11 +34,11 @@ public class MeshSelector : MonoBehaviour
 
     public void ChangeGameObject(float input, ref GameObject gameObject)
     {
-        int index = Mathf.FloorToInt(input * meshes.Length);
+        int index = Mathf.FloorToInt(input * (meshes.Length-1));
 
         Debug.Log($"The Generated Index is: {index}");
 
-        gameObject.GetComponent<MeshFilter>().mesh = meshes[index].meshFilter.mesh;
+        gameObject.GetComponent<MeshFilter>().mesh = meshes[index].meshFilter.sharedMesh;
         gameObject.GetComponent<Renderer>().material = meshes[index].material;
 
     }
